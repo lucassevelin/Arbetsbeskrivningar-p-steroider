@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[swedish]{babel}
+\usepackage{graphicx}
+\usepackage{datetime}
+\usepackage{fontspec}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{dirtytalk} % Ger snygga citat-tecken via kommandot \say{}
+
+\usepackage{geometry}
+ \geometry
+ {
+     a4paper,
+     total={170mm,257mm},
+     top=20mm,
+     bottom=30mm,
+     left=32.5mm,
+     right=32.5mm,
+ }
+
+%
+% Sätter Huvudfont. Font som är väldigt väldigt lik Garamond
+% Garamond finns inte till LaTeX
+%
+\setmainfont{Junicode}
+
+%
+%Sätter fonten på rubrikerna till DINRegular. Funkar inte att ha kursiva rubriker.
+%
+\newfontfamily\headingfont[]{DINRegular.ttf}
+\titleformat*{\section}{\LARGE\headingfont}
+\titleformat*{\subsection}{\Large\headingfont}
+\titleformat*{\subsubsection}{\large\headingfont}
+\renewcommand{\maketitlehooka}{\headingfont}
+
+%
+% Deklarerar DIN-fonterna. Används genom att t.ex. skriva {\DINBold(Texten du vill skriva...)}
+%
+\newfontfamily{\DINBold}{DINBold.ttf}
+\newfontfamily{\DINLight}{DINLight.ttf}
+\newfontfamily{\DINRegular}{DINRegular.ttf}
+
+
+%
+% Här bestäms formatet på datum.
+% 
+\newdateformat{mydate}{\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}}
+ 
+%
+% Här sätts sidhuvud och sidfot.
+%
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\mydate\today \\ \thepage \hspace{1 pt} (\pageref{LastPage})}
+\lhead{\includegraphics[]{lintek.png}}
+\cfoot{\footnotesize \textbf{Postadress} LinTek, Tekniska högskolan, 581 83 Linköping \textbf{Besöksadress} Tekniska högskolan, Kårallen, plan 3 \\ \textbf{Telefon} 070-269 45 84 \textbf{Org.nr} 822001-0683 \textbf{Plusgiro} 79 95 13-7 \textbf{Bankgiro} 515-1493 \\
+\textbf{E-post} lintek@lintek.liu.se \textbf{Hemsida} \href{www.lintek.liu.se}{www.lintek.liu.se} }
+
+%
+% Tar bort indentation
+%
+\setlength{\parindent}{0cm}

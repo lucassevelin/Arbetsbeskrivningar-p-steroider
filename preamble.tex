@@ -23,10 +23,9 @@
  }
 
 %
-% Sätter Huvudfont. Font som är väldigt väldigt lik Garamond
-% Garamond finns inte till LaTeX
+% Sätter huvudfont till Garamond
 %
-\setmainfont{Junicode}
+\setmainfont{EBGaramond-Regular.ttf}
 
 %
 %Sätter fonten på rubrikerna till DINRegular. Funkar inte att ha kursiva rubriker.
@@ -38,18 +37,32 @@
 \renewcommand{\maketitlehooka}{\headingfont}
 
 %
-% Deklarerar DIN-fonterna. Används genom att t.ex. skriva {\DINBold(Texten du vill skriva...)}
+% Deklarerar DIN- & Garamond-fonterna. Används genom att t.ex. skriva {\DINBold(Texten du vill skriva...)}
 %
 \newfontfamily{\DINBold}{DINBold.ttf}
 \newfontfamily{\DINLight}{DINLight.ttf}
 \newfontfamily{\DINRegular}{DINRegular.ttf}
-
+\newfontfamily{\GBold}{EBGaramond-Bold.ttf}
+\newfontfamily{\GItalic}{EBGaramond-MediumItalic.ttf}
+\newfontfamily{\GRegular}{EBGaramond-Regular.ttf}
 
 %
 % Här bestäms formatet på datum.
 % 
 \newdateformat{mydate}{\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}}
  
+%
+% Fixar till snyggare länkar
+%
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
+\urlstyle{same}
+
 %
 % Här sätts sidhuvud och sidfot.
 %
@@ -59,7 +72,8 @@
 \rhead{\mydate\today \\ \thepage \hspace{1 pt} (\pageref{LastPage})}
 \lhead{\includegraphics[]{lintek.png}}
 \cfoot{\footnotesize \textbf{Postadress} LinTek, Tekniska högskolan, 581 83 Linköping \textbf{Besöksadress} Tekniska högskolan, Kårallen, plan 3 \\ \textbf{Telefon} 070-269 45 84 \textbf{Org.nr} 822001-0683 \textbf{Plusgiro} 79 95 13-7 \textbf{Bankgiro} 515-1493 \\
-\textbf{E-post} lintek@lintek.liu.se \textbf{Hemsida} \href{www.lintek.liu.se}{www.lintek.liu.se} }
+\textbf{E-post} \href{mailto:lintek@lintek.liu.se?}{lintek@lintek.liu.se} 
+\textbf{Hemsida} \href{www.lintek.liu.se}{www.lintek.liu.se} }
 
 %
 % Tar bort indentation
